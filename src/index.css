@@ -1,0 +1,54 @@
+/* Basic reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+:root{
+  /* Zeabur-inspired palette: deep indigo/navy with vibrant indigo->cyan accents */
+  --bg-0: #050816; /* deepest night */
+  --bg-1: #07122b; /* indigo navy */
+  --panel: rgba(255,255,255,0.02);
+  --muted: #9aa6c7;
+  --text: #f1f8ff; /* brighter for improved contrast */
+  --accent: #7c3aed; /* vivid indigo */
+  --accent-2: #06b6d4; /* bright cyan */
+  --accent-3: #00ffd5; /* optional neon teal */
+  --glass: rgba(255,255,255,0.03);
+  --card-shadow: 0 12px 40px rgba(6,8,20,0.6);
+  --radius: 12px;
+  --trans: 260ms cubic-bezier(.2,.9,.3,1);
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+@media (prefers-color-scheme: light){
+  :root{
+    --bg-0: #f6fbff;
+    --bg-1: #eaf2ff;
+    --panel: rgba(10,12,20,0.04);
+    --muted: #475569;
+    --text: #071133;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  background: linear-gradient(135deg,var(--bg-1) 0%, var(--bg-0) 60%);
+  color: var(--text);
+  transition: background var(--trans), color var(--trans);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+a, button { cursor: pointer; }

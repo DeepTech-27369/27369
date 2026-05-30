@@ -1,0 +1,122 @@
+.flappy-bot-container {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 3 / 2;
+  background-color: #0a1020;
+  background-image: 
+    radial-gradient(circle at 50% 100%, rgba(6, 182, 212, 0.1), transparent 40%),
+    linear-gradient(to bottom, #0a1020 0%, #1a2035 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 2rem auto;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+  user-select: none;
+}
+
+.game-world {
+  width: 600px;
+  height: 400px;
+  position: relative;
+  transform-origin: top left;
+  overflow: hidden;
+}
+
+.game-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 8, 22, 0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  color: white;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.game-message {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.game-instruction {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-top: 1rem;
+}
+
+.game-score-final {
+  font-size: 1.2rem;
+  color: #e2e8f0;
+  margin-bottom: 0.2rem;
+}
+
+.game-score-display, .game-highscore-display {
+  position: absolute;
+  top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  z-index: 5;
+}
+
+.game-score-display {
+  left: 1rem;
+}
+
+.game-highscore-display {
+  right: 1rem;
+}
+
+.flappy-bot {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  will-change: top;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+}
+
+.bot-body {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #e2e8f0, #94a3b8);
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.5), 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.obstacle-pipe {
+  position: absolute;
+  width: 60px;
+  background: linear-gradient(90deg, #475569, #64748b);
+  border: 2px solid #94a3b8;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  will-change: left;
+}
+
+.obstacle-pipe::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(90deg, #94a3b8, #e2e8f0);
+  border-radius: 6px;
+}

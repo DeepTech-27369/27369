@@ -1,0 +1,187 @@
+.circular-gallery {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: grab;
+  perspective: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.circular-gallery * {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.gallery-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  --gallery-radius: 240px;
+}
+
+.circular-gallery:active {
+  cursor: grabbing;
+}
+
+.gallery-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+}
+
+.gallery-item {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 140px;
+  height: 180px;
+  margin-left: -70px;
+  margin-top: -90px;
+}
+
+.member-card {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(10,16,28,0.04));
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 12px;
+  box-shadow: 0 12px 36px rgba(2,8,23,0.6);
+  transition: transform 320ms cubic-bezier(.2,.9,.3,1), box-shadow 320ms, background 320ms;
+  overflow: hidden;
+}
+
+.member-card:hover {
+  transform: translateY(-8px) rotateX(8deg) scale(1.03);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(12,22,38,0.06));
+  box-shadow: 0 32px 80px rgba(2,8,23,0.7), 0 0 40px rgba(59,130,246,0.12);
+  border-color: rgba(59, 130, 246, 0.25);
+}
+
+.member-photo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.photo-placeholder {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  transition: transform 260ms cubic-bezier(.2,.9,.3,1), border-color 260ms;
+}
+
+.photo-icon {
+  font-size: 24px;
+  opacity: 0.7;
+}
+
+.member-card:hover .photo-placeholder {
+  border-color: rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, #4b5563, #6b7280);
+}
+
+.member-info {
+  text-align: center;
+  width: 100%;
+}
+
+.member-name {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+}
+
+.member-role {
+  font-size: 0.78rem;
+  color: #9fb0c9;
+  margin: 0;
+  font-weight: 400;
+  opacity: 0.95;
+}
+
+.member-card h3 {
+  font-family: var(--font-heading);
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 6px 18px rgba(2,8,23,0.6);
+}
+
+/* Focus and keyboard accessibility */
+.member-card:focus {
+  outline: 3px solid rgba(59,130,246,0.18);
+  outline-offset: 4px;
+  transform: translateY(-8px) rotateX(8deg) scale(1.03);
+}
+
+/* Make gallery items more legible when near back by adding a subtle overlay */
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  box-shadow: inset 0 12px 24px rgba(2,8,23,0.45);
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+/* Pause indicator (small dot when paused) */
+.circular-gallery.paused::before {
+  content: '\25CF';
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  color: rgba(125,211,252,0.9);
+  font-size: 12px;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+}
+
+@media (max-width: 480px) {
+  .gallery-container {
+    width: 240px;
+    height: 240px;
+    --gallery-radius: 170px; /* Tighter radius */
+  }
+
+  .gallery-item {
+    width: 110px; /* Slightly smaller cards */
+    height: 150px;
+    margin-left: -55px;
+    margin-top: -75px;
+  }
+}

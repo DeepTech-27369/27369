@@ -1,0 +1,64 @@
+.page-section {
+  padding: 6rem 2rem 4rem;
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  padding-top: 9rem;
+}
+
+.page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-title {
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #ffffff, #cfeefd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 8px 30px rgba(4,8,20,0.55);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #e2e8f0;
+}
+
+@media (max-width: 768px) {
+  .page-section {
+    padding-top: 7rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .page-title { 
+    font-size: 2.5rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  .page-section {
+    padding-top: 6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .page-title { 
+    font-size: 2.1rem; 
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .page-title {
+    font-size: 1.9rem;
+  }
+}

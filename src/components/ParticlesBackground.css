@@ -1,0 +1,48 @@
+.particles-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.particles-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.gradient-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.content-layer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+/* Ensure all interactive elements work */
+.content-layer * {
+  pointer-events: auto;
+}
+
+.content-layer a,
+.content-layer button,
+.content-layer input,
+.content-layer textarea {
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 999;
+}
